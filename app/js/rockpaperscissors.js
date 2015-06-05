@@ -42,18 +42,25 @@ function getWinner(playerMove,computerMove) {
     var winner;
     if (playerMove=== computerMove) {
         winner= 'tie';
+        console.log("Tie");
     } else if (playerMove==='rock' && computerMove=== 'scissors') {
         winner= 'player';
+        console.log("Rock beats scissors. You win.");
     } else if (playerMove=== 'rock' && computerMove=== 'paper') {
         winner= 'computer';
+        console.log("Paper beats rock. Computer wins.");
     } else if (playerMove=== 'scissors' && computerMove=== 'paper') {
         winner= 'player';
+        console.log("Scissors beat paper. You win.");
     } else if (playerMove=== 'scissors' && computerMove=== 'rock') {
         winner= 'computer';
+        console.log("Rock beats scissors. Computer wins.");
     } else if (playerMove=== 'paper' && computerMove=== 'rock') {
         winner= 'player';
+        console.log("Paper beats rock. You win.");
     } else if (playerMove=== 'paper' && computerMove=== 'scissors') {
         winner= 'computer';
+        console.log("Scissors beat paper. Computer wins.");
     }
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
@@ -66,8 +73,25 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
+    var winner = getwinner(getPlayerMove(), getComputerMove());
+    
+    while (computerWins <5 && playerWins<5) {
+        if (winner=== 'computer') {
+            computerWins +=1;
+            console.log("Computer wins. Your turn.")
+        } else if (winner==='player') {
+            playerWins +=1;
+            console.log("You win. Computer's turn.")
+        }
+    }
+    if (playerWins ===5) {
+        return playerWins;
+    } else if (computerWins ===5) {
+        return computerWins;
+    }
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
     return [playerWins, computerWins];
 }
+
 
