@@ -22,17 +22,17 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 
-// gets player's move or asks for move if one is not given //
+// gets player's move or asks for move if one is not given
 function getPlayerMove(move) {
     return move || getInput();
 }
 
-// gets computer's move if given or chooses one through randomPlay function //
+// gets computer's move if given or chooses one through randomPlay function
 function getComputerMove(move) {
     return move || randomPlay();
 }
 
-// compares player move to computer move to determine winner for each play //
+// compares player move to computer move to determine winner for each play
 function getWinner(playerMove,computerMove) {
     var winner;
     if (playerMove === computerMove) {
@@ -67,7 +67,12 @@ function getWinner(playerMove,computerMove) {
 }
 
 
-// asks for moves from computer and player until either the player or the computer has won five times //
+/*
+ asks for moves from computer and player
+ until either the player or the computer has won five times
+ console.log's the score after each match
+ returns winner at the end
+ */
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
